@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SistemaAPIFilmes</name>
+    </assembly>
+    <members>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.AdicionaFilme(SistemaAPIFilmes.Data.Dtos.CreateFilmeDto)">
+            <summary>
+            Adiciona um filme ao banco de dados
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+            <response code="400">Caso ocorra algum erro na hora da validação</response>
+            <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
+        </member>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.BuscaFilmes(System.Int32,System.Int32)">
+            <summary>
+            Busca os filmes no banco de dados
+            </summary>
+            <param name="skip">A partir de qual item quer começar?</param>
+            <param name="take">Quantos filmes quer exibir?</param>
+            <returns>IEnumerable</returns>
+            <response code="200">Caso os filmes sejam recuperados com sucesso</response>
+            <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
+        </member>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.BuscaFilmePorId(System.Int32)">
+            <summary>
+            Busca o filme com o ID especificado, no banco de dados
+            </summary>
+            <param name="filmeId">Campo ID necessário para a captura de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso o filme seja recuperado com sucesso</response>
+            <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
+        </member>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.AtualizarFilme(System.Int32,SistemaAPIFilmes.Data.Dtos.UpdateFilmeDto)">
+            <summary>
+            Atualiza um filme no banco de dados
+            </summary>
+            <param name="id">Campo ID necessário para a captura de um filme, para poder atualizar</param>
+            <returns>IActionResult</returns>
+            <response code="204">Caso o filme seja atualizado com sucesso</response>
+        </member>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.AtualizarFilmeParcialmente(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SistemaAPIFilmes.Data.Dtos.UpdateFilmeDto})">
+            <summary>
+            Atualiza parcialmente um filme no banco de dados
+            </summary>
+            <param name="id">Campo ID necessário para a captura de um filme, para poder atualizar</param>
+            <returns>IActionResult</returns>
+            <response code="204">Caso o filme seja atualizado com sucesso</response>
+            <response code="400">Caso ocorra algum erro na hora da validação</response>
+        </member>
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.DeletarFilme(System.Int32)">
+            <summary>
+            Apaga um filme no banco de dados
+            </summary>
+            <param name="id">Campo ID necessário para apagar um filme</param>
+            <returns>IActionResult</returns>
+            <response code="204">Caso o filme seja apagado com sucesso</response>
+            <response code="400">Caso ocorra algum erro nas validações para a exclusão</response>
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.CriandoTabelaDeFilme">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CriandoTabelaDeFilme.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CriandoTabelaDeFilme.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CriandoTabelaDeFilme.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
