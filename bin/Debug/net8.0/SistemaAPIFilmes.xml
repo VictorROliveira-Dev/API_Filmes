@@ -14,12 +14,13 @@
             <response code="400">Caso ocorra algum erro na hora da validação</response>
             <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
         </member>
-        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.BuscaFilmes(System.Int32,System.Int32)">
+        <member name="M:SistemaAPIFilmes.Controllers.FilmeController.BuscaFilmes(System.Int32,System.Int32,System.String)">
             <summary>
             Busca os filmes no banco de dados
             </summary>
             <param name="skip">A partir de qual item quer começar?</param>
             <param name="take">Quantos filmes quer exibir?</param>
+            <param name="nomeCinema">Qual filme quer buscar?</param>
             <returns>IEnumerable</returns>
             <response code="200">Caso os filmes sejam recuperados com sucesso</response>
             <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
@@ -69,6 +70,78 @@
             <inheritdoc />
         </member>
         <member name="M:SistemaAPIFilmes.Migrations.CriandoTabelaDeFilme.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.CreateRelationsEntities">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntities.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntities.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntities.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.CreateRelationsEntitiesSessaoEFilme">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntitiesSessaoEFilme.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntitiesSessaoEFilme.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.CreateRelationsEntitiesSessaoEFilme.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.RelationSessaoCinema">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationSessaoCinema.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationSessaoCinema.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationSessaoCinema.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.FilmeIdNull">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.FilmeIdNull.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.FilmeIdNull.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.FilmeIdNull.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.RelationCinemaFilme">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationCinemaFilme.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationCinemaFilme.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.RelationCinemaFilme.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaAPIFilmes.Migrations.ChangeDeleteMode">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.ChangeDeleteMode.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.ChangeDeleteMode.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaAPIFilmes.Migrations.ChangeDeleteMode.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

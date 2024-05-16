@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(c =>
 // String de Conexão:
 var connectionString = builder.Configuration.GetConnectionString("FilmeConnection");
 // Configurando conexão e versão:
-builder.Services.AddDbContext<FilmeContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+builder.Services.AddDbContext<FilmeContext>(options => options.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddAutoMapper(typeof(FilmeProfile)); 
 

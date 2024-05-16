@@ -109,3 +109,6 @@ C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\bin\Debug\net8.0\N
 C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\bin\Debug\net8.0\SistemaAPIFilmes.xml
 C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\obj\Debug\net8.0\SistemaAPIFilmes.xml
+C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\obj\Debug\net8.0\SistemaAPIFilmes.sourcelink.json
+C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\victo\source\repos\SistemaAPIFilmes\SistemaAPIFilmes\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll

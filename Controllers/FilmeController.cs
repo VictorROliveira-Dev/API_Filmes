@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SistemaAPIFilmes.Data;
 using SistemaAPIFilmes.Data.Dtos;
 using SistemaAPIFilmes.Models;
@@ -38,7 +39,7 @@ public class FilmeController : ControllerBase
 
         _filmeContext.Filmes.Add(filme);
         _filmeContext.SaveChanges();
-        
+
         return CreatedAtAction(nameof(BuscaFilmePorId), new { filmeId = filme.Id }, filme);
     }
 
@@ -47,6 +48,7 @@ public class FilmeController : ControllerBase
     /// </summary>
     /// <param name="skip">A partir de qual item quer começar?</param>
     /// <param name="take">Quantos filmes quer exibir?</param>
+    /// <param name="nomeCinema">Qual filme quer buscar?</param>
     /// <returns>IEnumerable</returns>
     /// <response code="200">Caso os filmes sejam recuperados com sucesso</response>
     /// <response code="404">O servidor não conseguiu obter uma resposta no caminho passado.</response>
@@ -54,11 +56,16 @@ public class FilmeController : ControllerBase
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IEnumerable<ReadFilmeDto> BuscaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 5)
+    public IEnumerable<ReadFilmeDto> BuscaFilmes([FromQuery] int skip = 0, [FromQuery] int take = 5, [FromQuery] string? nomeCinema = null)
     {
-        // Definindo 0 valores padrões de 0 e 5 para a URL, caso o usuário não passe nenhum valor.
-        // Paginação de itens da API (skip indica quantos itens quer pular) e (take quantos itens quer pegar):
-        return _mapper.Map<List<ReadFilmeDto>>(_filmeContext.Filmes.Skip(skip).Take(take));
+        if (nomeCinema == null)
+        {
+            // Definindo 0 valores padrões de 0 e 5 para a URL, caso o usuário não passe nenhum valor.
+            // Paginação de itens da API (skip indica quantos itens quer pular) e (take quantos itens quer pegar):
+            return _mapper.Map<List<ReadFilmeDto>>(_filmeContext.Filmes.Skip(skip).Take(take).ToList());
+        }
+        return _mapper.Map<List<ReadFilmeDto>>(_filmeContext.Filmes.Skip(skip).Take(take).Where(filme => filme.Sessoes.Any(sessao => sessao.Cinema.Nome == nomeCinema))
+                                                                                                                      .ToList());
     }
 
     /// <summary>
@@ -87,7 +94,7 @@ public class FilmeController : ControllerBase
     /// <response code="204">Caso o filme seja atualizado com sucesso</response>
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public IActionResult AtualizarFilme(int id,[FromBody] UpdateFilmeDto filmeDto)
+    public IActionResult AtualizarFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
     {
         var filme = _filmeContext.Filmes.FirstOrDefault(f => f.Id == id);
         if (filme == null) return NotFound();
